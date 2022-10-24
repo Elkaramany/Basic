@@ -3,24 +3,11 @@ import { Text, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { GlobalStyles } from '../Config/Constants';
 import Header from '../Components/Header';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 import { Container, RegText } from '../Components';
 
-interface SocialButtonProps {
-
-}
-
 interface Props {
-    navigation: StackNavigationProp<any, any>,
-}
-
-const SocialButton: React.FC<SocialButtonProps> = ({ }) => {
-    return (
-        <View>
-            
-        </View>
-    )
+    navigation: any,
 }
 
 const Home: React.FC<Props> = ({ navigation }) => {
