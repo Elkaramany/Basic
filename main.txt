@@ -1,0 +1,24 @@
+I understand You're looking for a React Native developer ; The classic way I like to start on apps is using the React Native Typescript template as it allows for more scalability, So I'll give you a brief example on how I would like to approach developing a basic app like this:
+
+1) Login and sign up screens ( we can include some social media authentication )
+2) Home / Menu screen where we feature your products/ideas
+3) Functionality screens
+4) A settings screen where they can change their info or modify the app for their liking
+5) Communicate with you on what the other screen might entail
+
+I'm not gonna take any more of your time, so I'm going to keep this short for now. You can find a picture in the attached section that contains several screenshots of some apps I've made and another 2 links below so that you can see my previous work.
+
+Student health insurance app published by me: https://apps.apple.com/us/app/polify/id1535496828
+Rently app published by me: https://apps.apple.com/eg/app/rently-tours/id1327264569
+
+All the best,
+Mostafa Elkaramany
+
+
+1. Be clear on requirements
+2. Produce quality code
+3. Set up the right environments for QA like jest
+4. Conduct test coverage and tests cases review sessions regularly ( every coding session )
+5. Communicate with the client about my progress and take their input on what can be improved
+
+16 ram 256 22900

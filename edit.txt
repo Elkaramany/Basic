@@ -1,0 +1,16 @@
+I took a look at the , I would approach the developing phase for upgrading your app in these steps:
+
+1) Take a good look at your codebase to understand the programming concepts and practices being used
+2) Communicate with you on what I understand the bugs you need fixed entail or the features you want add would look like
+3) Fork your code onto my mac and start working on the bugs to be pushed to a separate branch and be ready for a PR
+4) Work with you on the testing process to ensure everything is as you expect and fix any bugs we might encounter
+
+I'm not gonna take any more of your time, so I'm going to keep this short for now. You can find a picture in the attached section that contains several screenshots of some apps I've made so that you can see my previous work.
+
+Student health insurance app published by me: https://apps.apple.com/us/app/polify/id1535496828
+Rently app published by me: https://apps.apple.com/eg/app/rently-tours/id1327264569
+
+All the best,
+Mostafa Elkaramany
+
+1-NzQ4MzQ=
