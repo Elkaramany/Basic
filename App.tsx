@@ -1,29 +1,24 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Colors, IOS } from './src/Config/Constants';
+import { Colors, IOS } from '@config';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-//Redux
-import Redux from './src/Redux'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/lib/integration/react'
+//Query
+import { queryClient, asyncStoragePersistor } from '@query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
 //Navigation
-import { NavigationContainer } from '@react-navigation/native';
-import StackNavigator from './src/Navigation/StackNavigator'
+import Navigator from '@navigation'
 
 export default () => {
-  //If you don't want to persist data
-  Redux['Persistor'].purge()
   return (
-    <Provider store={Redux['Store']}>
-      <View style={{ flex: 1, backgroundColor: Colors.backGround, paddingTop: IOS ? getStatusBarHeight() : 0 }}>
-        <PersistGate persistor={Redux['Persistor']}>
-          <NavigationContainer>
-            <StackNavigator />
-          </NavigationContainer>
-        </PersistGate>
-      </View>
-    </Provider>
+    <View style={{ flex: 1, backgroundColor: Colors.backGround, paddingTop: IOS ? getStatusBarHeight() : 0 }}>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{ persister: asyncStoragePersistor }}
+      >
+        <Navigator />
+      </PersistQueryClientProvider>
+    </View>
   )
 }

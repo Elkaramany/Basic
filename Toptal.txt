@@ -1,9 +1,0 @@
-Mostafa is an experienced React Native developer who has done a lot of projects creating and maintaining apps for Android and iOS, he also has an extensive experience using different technologies:
-• Typescript
-• Firebase
-• Integrating with RESTful APIs
-• Authentication ( Including social media Auth )
-• IoT ( Bluetooth )
-• Offline storage and support
-
-Story ( 2 - 3 sentences ).
