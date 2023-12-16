@@ -1,51 +1,90 @@
-import React from 'react'
-import { ViewStyle } from 'react-native'
-import { TextInput } from 'react-native-paper';
-import { Colors } from '../Config'
-import { verticalScale } from 'react-native-size-matters';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, TextInputProps } from 'react-native';
+import { Colors, GlobalStyles, validatePassword } from '@Config';
+import { scale, verticalScale } from 'react-native-size-matters';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import Text from './Text'
 
-const textInputTheme = {
-    colors: {
-        placeholder: Colors.secondary, text: Colors.tertiary, primary: Colors.secondary,
-        underlineColor: Colors.secondary, background: Colors.primary
-    }, roundness: verticalScale(1.75)
+interface Props extends TextInputProps {
+    label?: string;
+    rightIcon?: React.ReactNode;
+    leftIcon?: React.ReactNode;
+    placeholder?: string
+    hint?: string
 }
 
-interface Props {
-    multiline?: boolean
-    inputStyle?: ViewStyle
-    label: string
-    value: string | number
-    onChangeText: (text: string) => void
-    secureTextEntry?: boolean
-    rightIcon?: any
-    leftIcon?: any
-    type?: any
-    numLines?: number
-    dense?: boolean
-    onSubmitEditing?: () => void
-}
+const Input: React.FC<Props> = ({ label, placeholder, value, onChangeText, secureTextEntry, onSubmitEditing, rightIcon, leftIcon, hint, ...rest }) => {
+    const [isFocused, setIsFocused] = useState(false);
 
-const Input: React.FC<Props> = ({ inputStyle, label, value, onChangeText = (text) => { },
-    secureTextEntry, rightIcon, leftIcon, type, numLines, dense, onSubmitEditing }) => {
+    const handleFocus = () => setIsFocused(true);
+    const handleBlur = () => setIsFocused(false);
+
     return (
-        <TextInput
-            dense={dense || false}
-            numberOfLines={numLines || 1}
-            right={rightIcon ? rightIcon : null}
-            left={leftIcon ? leftIcon : null}
-            secureTextEntry={secureTextEntry || false}
-            mode="outlined"
-            multiline={false}
-            style={[{ marginBottom: verticalScale(3.5) }, inputStyle]}
-            label={label}
-            value={value.toString()}
-            onChangeText={text => onChangeText(text)}
-            theme={textInputTheme}
-            keyboardType={type ? type : "default"}
-            onSubmitEditing={onSubmitEditing}
-        />
-    )
-}
+        <TouchableWithoutFeedback
+            style={{
+                backgroundColor: Colors.backGround,
+                borderColor: isFocused ? Colors.black : Colors.gray,
+                borderWidth: 1,
+                borderRadius: verticalScale(8),
+                paddingHorizontal: scale(15),
+            }}
+            onPress={() => handleFocus()}>
+            {label && isFocused && <Text str={label} style={{ fontSize: scale(13), marginTop: verticalScale(12), fontWeight: '500' }} />}
+            <View style={[
+                styles.inputContainer,
+                GlobalStyles.centeredContainer]}>
+                {leftIcon && <View style={styles.iconContainer}>{leftIcon}</View>}
+                <TextInput
+                    style={[
+                        styles.input,
+                        {
+                            paddingLeft: leftIcon ? 15 : 0,
+                            paddingRight: rightIcon ? 15 : 0,
+                        },
+                    ]}
+                    placeholder={placeholder}
+                    placeholderTextColor={Colors.placeholder}
+                    value={value}
+                    onChangeText={onChangeText}
+                    secureTextEntry={secureTextEntry}
+                    onSubmitEditing={onSubmitEditing}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    {...rest}
+                />
+                {rightIcon && <View style={styles.iconContainer}>{rightIcon}</View>}
+            </View>
+            {secureTextEntry && !validatePassword(value) && <Text style={{ fontSize: scale(8), color: Colors.placeholder, bottom: scale(5) }} str={hint} />}
+        </TouchableWithoutFeedback>
+    );
+};
 
-export default Input
+const styles = StyleSheet.create({
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    iconContainer: {
+        paddingHorizontal: 10,
+    },
+    input: {
+        paddingHorizontal: 10,
+        paddingVertical: verticalScale(11),
+        marginBottom: verticalScale(3.5),
+        fontSize: 16,
+        color: Colors.black,
+        fontWeight: 'bold',
+        flex: 1,
+    },
+    inputWithLeftIcon: {
+        paddingLeft: 40,
+    },
+    inputWithRightIcon: {
+        paddingRight: 40,
+    },
+    focusedInput: {
+        borderColor: Colors.tertiary,
+    },
+});
+
+export default Input;

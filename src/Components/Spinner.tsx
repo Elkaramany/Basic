@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { Colors } from '../Config';
 
-const Spinner: React.FC<{ size?: boolean, spinnerColor?: string }> = ({ size, spinnerColor }) => {
+const Spinner: React.FC<{ big?: boolean, spinnerColor?: string }> = ({ big, spinnerColor }) => {
     return (
         <View
             style={{
@@ -12,8 +12,8 @@ const Spinner: React.FC<{ size?: boolean, spinnerColor?: string }> = ({ size, sp
             }}
         >
             <ActivityIndicator
-                size={size == true ? 'small' : 'large'}
-                color={spinnerColor || Colors.secondary}
+                size={big == true ? 'large' : 'large'}
+                color={spinnerColor || Colors.blue}
             />
         </View>
     );

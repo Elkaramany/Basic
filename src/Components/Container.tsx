@@ -5,7 +5,7 @@ import { Colors } from '../Config'
 interface Props {
     bigContainerStyle?: ViewStyle
     smallContainerStyle?: ViewStyle
-    children: any
+    children: React.ReactNode
 }
 
 const Container: React.FC<Props> = ({ bigContainerStyle, smallContainerStyle, children }) => {

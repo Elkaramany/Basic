@@ -1,0 +1,36 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json", /* Recommended React Native TSConfig base */
+  "compilerOptions": {
+    "esModuleInterop": true,
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    /* Completeness */
+    "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./src/*"
+      ],
+      "@Config": [
+        "./src/Config"
+      ],
+      "@Components": [
+        "./src/Components"
+      ],
+      "@Navigation": [
+        "./src/Navigation"
+      ],
+      "@NavigationTypes": [
+        "./src/Navigation/types"
+      ],
+      "@Screens": [
+        "./src/Screens"
+      ],
+      "@Zustand": [
+        "./src/Zustand"
+      ],
+      "@Assets": [
+        "./src/Assets"
+      ],
+    }
+  }
+}

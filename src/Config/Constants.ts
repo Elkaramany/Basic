@@ -7,9 +7,11 @@ const WIDTH: number = Dimensions.get('window').width
 const HEIGHT: number = Dimensions.get('window').height
 
 const Colors = {
-    backGround: '#1E1E1E',
+    backGround: '#FFF',
+    primary: '#000',
     grayBg: "#232232",
-    primary: '#487BFF',
+    black: "#000",
+    placeholder:"#808080",
     secondary: '#FFFFFF',
     tertiary: '#F58B6A',
     quaternary: '#80809E',

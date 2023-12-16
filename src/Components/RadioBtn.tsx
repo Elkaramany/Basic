@@ -1,38 +1,69 @@
-import React from 'react'
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
-import { scale } from 'react-native-size-matters'
-import { GlobalStyles, Colors } from '../Config'
+import React from 'react';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import Text from './Text'
+import { scale, verticalScale } from 'react-native-size-matters';
+import { GlobalStyles, Colors } from '../Config';
 
 interface Props {
-    onPress: () => void
-    selected: boolean
-    text: string
+    onPress: () => void;
+    selected: boolean;
+    str: string;
 }
 
-const RadioBtn: React.FC<Props> = ({ onPress = () => { }, selected, text }) => {
+const RADIO_BUTTON_SIZE = scale(10);
+const RADIO_BUTTON_OUTER_SIZE = scale(23);
+
+const RadioBtn: React.FC<Props> = ({ onPress = () => { }, selected, str }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={() => onPress()}>
-            <View style={{
-                height: 24,
-                width: 24,
-                borderRadius: 12,
-                borderWidth: 2,
-                borderColor: '#000',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: selected ? Colors.secondary : Colors.primary
-            }} />
-            <Text style={[GlobalStyles.regularText, { marginLeft: scale(2) }]}>{text}</Text>
-        </TouchableOpacity>
-    )
-}
+            <View
+                style={[
+                    styles.radioButtonOuter,
+                    {
+                        width: RADIO_BUTTON_OUTER_SIZE,
+                        height: RADIO_BUTTON_OUTER_SIZE,
+                        borderRadius: RADIO_BUTTON_OUTER_SIZE / 2,
+                        borderColor: Colors.primary,
+                        backgroundColor: selected ? Colors.blue : Colors.light,
+                    },
+                ]}
+            >
+                {selected &&
+                    <View
+                        style={[
+                            styles.radioButtonInner,
+                            {
+                                width: RADIO_BUTTON_SIZE,
+                                height: RADIO_BUTTON_SIZE,
+                                borderRadius: RADIO_BUTTON_SIZE / 2,
+                                backgroundColor: Colors.primary,
+                            },
+                        ]}
+                    />
+                }
+            </View>
+            <Text str={str} style={{ paddingLeft: scale(10), fontWeight: 'bold' }} />
+        </TouchableOpacity >
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: verticalScale(10),
+        marginVertical: verticalScale(15)
+    },
+    radioButtonOuter: {
         justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+        alignItems: 'center',
+        borderWidth: scale(2),
+        borderRadius: RADIO_BUTTON_OUTER_SIZE / 2,
+    },
+    radioButtonInner: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
 
-export default RadioBtn
+export default RadioBtn;

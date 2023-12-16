@@ -1,24 +1,16 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Colors, IOS } from '@config';
+import { Colors, IOS } from '@Config';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-//Query
-import { queryClient, asyncStoragePersistor } from '@query';
-import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
 //Navigation
-import Navigator from '@navigation'
+import Navigator from '@Navigation'
 
 export default () => {
   return (
     <View style={{ flex: 1, backgroundColor: Colors.backGround, paddingTop: IOS ? getStatusBarHeight() : 0 }}>
-      <PersistQueryClientProvider
-        client={queryClient}
-        persistOptions={{ persister: asyncStoragePersistor }}
-      >
         <Navigator />
-      </PersistQueryClientProvider>
     </View>
   )
 }

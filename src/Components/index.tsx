@@ -1,17 +1,17 @@
-import Container from "./Container";
-import Input from "./Input";
-import Header from "./Header";
-import HeaderArrow from "./HeaderArrow";
-import Spinner from "./Spinner";
-import RegText from "./RegText";
-import RegImage from './RegImage'
+import Container from './Container';
+import Input from './Input';
+import RadioBtn from './RadioBtn';
+import Spinner from './Spinner';
+import Text from './Text';
+import Button from './Button';
+import SocialButton from './SocialButton';
 
 export {
     Container,
     Input,
-    Header,
-    HeaderArrow,
+    RadioBtn,
     Spinner,
-    RegText,
-    RegImage
-}
+    Text,
+    Button,
+    SocialButton,
+};

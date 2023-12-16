@@ -4,31 +4,16 @@
             "module-resolver",
             {
                 "alias": {
-                    "@config": "./src/Config",
-                    "@component": "./src/Component",
-                    "@screens": "./src/Screens",
-                    "@assets": "./src/Assets",
-                    "@navigation": "./src/Navigation",
-                    "@query": "./src/Query",
-                    "@API": "./src/API"
+                    "*": "./src/*",
+                    "@Config": "./src/Config",
+                    "@Components": "./src/Components",
+                    "@Navigation": "./src/Navigation",
+                    "@NavigationTypes": "./src/NavigationTypes",
+                    "@Screens": "./src/Screens",
+                    "@Assets": "./src/Assets",
+                    "@Zustand": "./src/Zustand"
                 }
             }
-        ],
-        [
-            "module:react-native-dotenv"
         ]
     ]
 }
-
-//For ts
-
-"paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-      "*": ["./src/*"],
-      "@config": ["./src/Config"],
-      "@component": ["./src/Component"],
-      "@APIs" :["./src/API"],
-      "@screens": ["./src/Screens"],
-      "@assets": ["./src/Assets"],
-      "@navigation": ["./src/Navigation"],
-      "@query": ["./src/Query"]
-    },                          
