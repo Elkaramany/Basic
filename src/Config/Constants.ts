@@ -14,12 +14,6 @@ const Colors = {
     placeholder:"#808080",
     secondary: '#FFFFFF',
     tertiary: '#F58B6A',
-    quaternary: '#80809E',
-    mainFooter: '#FFD700',
-    gradientButton: ['#ee8a8a', '#ea8085'],
-    gray: '#a3b4bf',
-    brightRed: '#a35d6a',
-    mainHeader: '#3b2e5a',
 }
 
 const GlobalStyles = StyleSheet.create({
@@ -63,7 +57,7 @@ const GlobalStyles = StyleSheet.create({
         fontWeight: 'bold',
         color: Colors.primary
     }, textMissMatch: {
-        color: Colors.gray,
+        color: Colors.grayBg,
         fontSize: verticalScale(2),
         fontWeight: 'bold',
         textAlign: 'center'

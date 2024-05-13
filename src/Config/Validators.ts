@@ -14,7 +14,8 @@ export const validateEmail = (email: string): boolean => {
     return true;
 }
 
-export const validatePassword = (password: string): boolean => {
+export const validatePassword = (password: string | undefined): boolean => {
+    if (!password || password === undefined) return false
     const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
     if (!password || !password.length || !password.match(passw)) {
         return false
@@ -95,7 +96,7 @@ export const handleSelection = async (): Promise<string | null> => new Promise((
 });
 
 export const getSuggesions = (text: string, arr: any[]): any[] => {
-    if(!text.length || !arr.length) return []
+    if (!text.length || !arr.length) return []
     return arr.filter(
         (val) => val.toLowerCase().indexOf(text.toLowerCase()) > -1
     );

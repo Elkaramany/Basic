@@ -23,13 +23,13 @@ const Input: React.FC<Props> = ({ label, placeholder, value, onChangeText, secur
         <TouchableWithoutFeedback
             style={{
                 backgroundColor: Colors.backGround,
-                borderColor: isFocused ? Colors.black : Colors.gray,
+                borderColor: isFocused ? Colors.black : Colors.grayBg,
                 borderWidth: 1,
                 borderRadius: verticalScale(8),
                 paddingHorizontal: scale(15),
             }}
             onPress={() => handleFocus()}>
-            {label && isFocused && <Text str={label} style={{ fontSize: scale(13), marginTop: verticalScale(12), fontWeight: '500' }} />}
+            {label && <Text str={label} style={{ fontSize: scale(13), marginTop: verticalScale(12), fontWeight: '500' }} />}
             <View style={[
                 styles.inputContainer,
                 GlobalStyles.centeredContainer]}>

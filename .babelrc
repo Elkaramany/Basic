@@ -11,7 +11,7 @@
                     "@NavigationTypes": "./src/NavigationTypes",
                     "@Screens": "./src/Screens",
                     "@Assets": "./src/Assets",
-                    "@Zustand": "./src/Zustand"
+                    "@Redux": "./src/Redux"
                 }
             }
         ]

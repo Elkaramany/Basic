@@ -12,7 +12,7 @@ const Container: React.FC<Props> = ({ bigContainerStyle, smallContainerStyle, ch
 
     return (
         <View style={[{ flex: 1, backgroundColor: Colors.backGround }, bigContainerStyle]}>
-            <View style={[{ flex: 1, marginHorizontal: '5.5%' }, smallContainerStyle,]}>
+            <View style={[{ flex: 1, marginHorizontal: '3.5%' }, smallContainerStyle,]}>
                 {children}
             </View>
         </View>
