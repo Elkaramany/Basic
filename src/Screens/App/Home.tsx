@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 
-import { Container, Input, Text } from '@Components';
-import { useAuthActions } from '@Redux';
-import { HomeStackNavigationProp } from '@NavigationTypes';
+import { Container, Text, Input } from '@components';
+import { useAuthActions } from '@redux';
+import { HomeStacknavigationProp } from '@navigationTypes';
 
 interface Props {
-    navigation: HomeStackNavigationProp<'Home'>,
+    navigation: HomeStacknavigationProp<'Home'>,
 }
 
 const Home: React.FC<Props> = ({ navigation }) => {

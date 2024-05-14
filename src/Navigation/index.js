@@ -1,17 +1,17 @@
 import React from "react";
 import { View } from 'react-native'
-import { Colors, IOS } from '@Config';
+import { colors, IOS } from '@config';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Auth from './AuthStack'
-import App from './AppStack'
+import Auth from './authStack'
+import App from './appStack'
 
 const MainNavigator = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.backGround, paddingTop: IOS ? getStatusBarHeight() : 0 }}>
+    <View style={{ flex: 1, backgroundColor: colors.bg.primary }}>
       <NavigationContainer>
-        <App />
+        <Auth />
       </NavigationContainer>
     </View>
   );

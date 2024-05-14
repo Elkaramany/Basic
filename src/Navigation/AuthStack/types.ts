@@ -1,4 +1,4 @@
-import { StackNavigationProp } from '@react-navigation/stack';
+import { StacknavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
 // Define your stack navigator param list
@@ -7,7 +7,7 @@ export type AuthStackParamList = {
 };
 
 // Define types for navigation props
-export type AuthStackNavigationProp<T extends keyof AuthStackParamList> = StackNavigationProp<
+export type AuthStacknavigationProp<T extends keyof AuthStackParamList> = StacknavigationProp<
     AuthStackParamList,
     T
 >;

@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, Text, ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import { verticalScale } from 'react-native-size-matters';
-import { Colors } from '../Config'
+import { colors, fontSizes } from '../config'
 
 interface Props {
     headerStyle?: ViewStyle;
     textStyle?: TextStyle;
-    headerText: string;
+    value: string;
 }
 
-const Header: React.FC<Props> = ({ headerStyle, textStyle, headerText }) => {
+const Header: React.FC<Props> = ({ headerStyle, textStyle, value }) => {
     return (
         <View style={[styles.headerContainer, headerStyle]}>
             <Text style={[styles.headerTextStyle, textStyle]}>
-                {headerText}
+                {value}
             </Text>
         </View>
     )
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     headerContainer: {
         backgroundColor: 'transparent'
     }, headerTextStyle: {
-        color: Colors.primary,
-        fontSize: verticalScale(50),
+        color: colors.ui.primary,
+        fontSize: fontSizes.title,
         fontWeight: 'bold'
     },
 })

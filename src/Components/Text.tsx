@@ -1,35 +1,50 @@
 import React from 'react';
-import { Text, TextStyle, ViewStyle, Platform } from 'react-native';
+import { Text, TextStyle, ViewStyle, Platform, StyleSheet } from 'react-native';
 import { scale } from 'react-native-size-matters';
-import { Colors, IOS } from '@Config';
+import { colors, fontSizes, fontWeights, IOS } from '@config';
 
 interface Props {
-    str: string | undefined
+    value: string
     color?: string
     style?: TextStyle | ViewStyle | Array<ViewStyle | TextStyle> | Array<TextStyle | undefined>;
     big?: boolean
     bigger?: boolean
-    biggest?: boolean
     small?: boolean
 }
 
-const RegText: React.FC<Props> = ({ str, color, style, big, bigger, biggest, small }) => {
+const TextComponent: React.FC<Props> = ({ value, color, style, big, bigger, small }) => {
 
     const getSizeOfFont = () => {
-        if (str && str?.length > 1000) return IOS ? scale(12) : scale(11);
-        if (str && str?.length > 750) return IOS ? scale(15) : scale(13);
-        if (big) return IOS ? scale(18) : scale(16);
-        else if (bigger) return IOS ? scale(20) : scale(18);
-        else if (biggest) return IOS ? scale(34) : scale(32);
-        else if (small) return IOS ? scale(13) : scale(11);
-        return IOS ? scale(15) : scale(13);
+        if (value && value?.length > 1000) return IOS ? scale(fontSizes.caption) : scale(fontSizes.caption - 1);
+        if (value && value?.length > 750) return IOS ? scale(fontSizes.button) : scale(fontSizes.button - 1);
+        if (big) return IOS ? scale(fontSizes.title) : scale(fontSizes.title - 1);
+        else if (bigger) return IOS ? scale(fontSizes.h4) : scale(fontSizes.h4 - 1);
+        else if (small) return IOS ? scale(fontSizes.body) : scale(fontSizes.body - 1);
+        return IOS ? scale(fontSizes.button) : scale(fontSizes.button - 1);
+    };
+
+    const getFontWeight = () => {
+        if (bigger) return fontWeights.bold;
+        else if (big) return fontWeights.medium;
+        else return fontWeights.regular;
     };
 
     return (
-        <Text style={[{ fontSize: getSizeOfFont(), color: color || Colors.black, fontWeight: biggest || bigger ? 'bold' : 'normal' }, style]}>
-            {str}
+        <Text style={[styles.text,
+        {
+            fontSize: getSizeOfFont(),
+            color: color || bigger || big ? colors.ui.primary : colors.text.primary,
+            fontWeight: getFontWeight(),
+        }
+            , style]}>
+            {value}
         </Text>
     )
 }
 
-export default RegText
+const styles = StyleSheet.create({
+    text: {
+    }
+})
+
+export default TextComponent;

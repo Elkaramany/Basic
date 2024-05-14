@@ -1,2 +1,2 @@
-export * from './AuthStack/types'
-export * from './AppStack/types'
+export * from './authStack/types'
+export * from './appStack/types'

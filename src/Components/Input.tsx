@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TextInputProps } from 'react-native';
-import { Colors, GlobalStyles, validatePassword } from '@Config';
+import { colors, fontSizes, fontWeights, globalStyles, lineHeights, validatePassword } from '@config';
 import { scale, verticalScale } from 'react-native-size-matters';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import Text from './Text'
+import Text from './text'
 
 interface Props extends TextInputProps {
     label?: string;
@@ -22,17 +22,21 @@ const Input: React.FC<Props> = ({ label, placeholder, value, onChangeText, secur
     return (
         <TouchableWithoutFeedback
             style={{
-                backgroundColor: Colors.backGround,
-                borderColor: isFocused ? Colors.black : Colors.grayBg,
+                backgroundColor: colors.bg.primary,
+                borderColor: isFocused ? colors.text.primary : colors.text.secondary,
                 borderWidth: 1,
                 borderRadius: verticalScale(8),
                 paddingHorizontal: scale(15),
+                width: '100%',
             }}
             onPress={() => handleFocus()}>
-            {label && <Text str={label} style={{ fontSize: scale(13), marginTop: verticalScale(12), fontWeight: '500' }} />}
-            <View style={[
-                styles.inputContainer,
-                GlobalStyles.centeredContainer]}>
+            {label &&
+                <Text
+                    value={label}
+                    style={styles.labelStyle}
+                />
+            }
+            <View style={styles.inputContainer}>
                 {leftIcon && <View style={styles.iconContainer}>{leftIcon}</View>}
                 <TextInput
                     style={[
@@ -43,7 +47,7 @@ const Input: React.FC<Props> = ({ label, placeholder, value, onChangeText, secur
                         },
                     ]}
                     placeholder={placeholder}
-                    placeholderTextColor={Colors.placeholder}
+                    placeholderTextColor={colors.text.secondary}
                     value={value}
                     onChangeText={onChangeText}
                     secureTextEntry={secureTextEntry}
@@ -54,7 +58,7 @@ const Input: React.FC<Props> = ({ label, placeholder, value, onChangeText, secur
                 />
                 {rightIcon && <View style={styles.iconContainer}>{rightIcon}</View>}
             </View>
-            {secureTextEntry && !validatePassword(value) && <Text style={{ fontSize: scale(8), color: Colors.placeholder, bottom: scale(5) }} str={hint} />}
+            {secureTextEntry && !validatePassword(value) && <Text style={{ fontSize: fontSizes.caption, color: colors.text.secondary, bottom: scale(5) }} str={hint} />}
         </TouchableWithoutFeedback>
     );
 };
@@ -71,20 +75,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: verticalScale(11),
         marginBottom: verticalScale(3.5),
-        fontSize: 16,
-        color: Colors.black,
-        fontWeight: 'bold',
-        flex: 1,
-    },
-    inputWithLeftIcon: {
-        paddingLeft: 40,
-    },
-    inputWithRightIcon: {
-        paddingRight: 40,
-    },
-    focusedInput: {
-        borderColor: Colors.tertiary,
-    },
+        fontSize: fontSizes.button,
+        fontWeight: fontWeights.regular,
+        color: colors.text.primary,
+    }, labelStyle: {
+        fontSize: fontSizes.body,
+        marginTop: lineHeights.copy,
+        fontWeight: fontWeights.medium,
+        color: colors.text.primary
+    }
 });
 
 export default Input;

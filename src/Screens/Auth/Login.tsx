@@ -1,29 +1,54 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ImageBackground, StyleSheet } from 'react-native';
 
-import { Container, Input, Text } from '@Components';
-import { useAuthActions } from '@Redux';
-import { AuthStackNavigationProp } from '@NavigationTypes';
+import { Container, Input, Header, Text, Button } from '@components';
+import { useAuthActions } from '@redux';
+import { AuthStacknavigationProp } from '@navigationTypes';
+import { PlusIcon, homeBg } from '@assets';
+import { colors, globalStyles } from '@config';
+import { scale } from 'react-native-size-matters';
 
 interface Props {
-    navigation: AuthStackNavigationProp<'Login'>,
+    navigation: AuthStacknavigationProp<'Login'>,
 }
 
 const Login: React.FC<Props> = ({ navigation }) => {
-    const { email, password, name, setAuthState, onResetAuthState } = useAuthActions()
+    const { email, setEmail, password, name, setAuthState, onResetAuthState } = useAuthActions()
 
     return (
-        <Container>
-            <Text str='hello world' />
+        <ImageBackground source={homeBg} style={{ flex: 1, paddingHorizontal: '3.5%' }}>
 
-            <Input
-                label='Email'
-                value={email}
-                onChangeText={(newEmail) => setAuthState({ prop: 'email', value: newEmail })}
-            />
+            <View style={{ flex: 1, justifyContent: 'center' }}>
+                <Text value='Meals To Go' big style={{ alignSelf: 'center' }} />
+                <View style={styles.authButtonsContainer}>
+                    <Button
+                        value='Login'
+                        onPress={() => { }}
+                        icon={<PlusIcon fill={colors.text.inverse} />}
+                        buttonStyle={{ margin: scale(20), marginBottom: scale(5) }}
+                    />
 
-        </Container>
+                    <Button
+                        value='Register'
+                        onPress={() => { }}
+                        icon={<PlusIcon fill={colors.text.inverse} />}
+                        buttonStyle={{ margin: scale(20), marginTop: scale(5) }}
+                    />
+                </View>
+
+            </View>
+
+        </ImageBackground>
     )
 }
+
+const styles = StyleSheet.create({
+    authButtonsContainer: {
+        width: '55%',
+        alignSelf: 'center',
+        backgroundColor: 'rgba(240, 240, 240, 0.5)', // Semi-transparent whitish color
+        marginTop: scale(15),
+    }
+})
 
 export default Login

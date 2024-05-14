@@ -9,6 +9,22 @@ export const useAuthActions = () => {
         dispatch(onChangeAuthState({ prop, value }));
     };
 
+    const setEmail = (value: string) => {
+        dispatch(onChangeAuthState({ prop: 'email', value }));
+    }
+
+    const setPassowrd = (value: string) => {
+        dispatch(onChangeAuthState({ prop: 'password', value }));
+    }
+
+    const setName = (value: string) => {
+        dispatch(onChangeAuthState({ prop: 'name', value }));
+    }
+
+    const switchAuthLoader = (value: boolean) => {
+        dispatch(onChangeAuthState({ prop: 'authLoading', value }));
+    }
+
     const onResetAuthState = () => {
         dispatch(resetAuthState());
     };
@@ -17,8 +33,12 @@ export const useAuthActions = () => {
         onResetAuthState,
         setAuthState,
         email,
+        setEmail,
         password,
+        setPassowrd,
         name,
+        setName,
+        switchAuthLoader,
         authLoading
     };
 };

@@ -1,30 +1,19 @@
 import { scale, verticalScale } from 'react-native-size-matters';
 import { Platform, StyleSheet, Dimensions } from 'react-native';
+import { colors } from './colors'
+import { fonts, fontSizes, fontWeights } from './fonts';
+import { sizes } from './sizes';
+import { space, lineHeights } from './spacing';
 
 const IOS: boolean = Platform.OS === 'ios';
 const ANDROID: boolean = Platform.OS === 'android';
 const WIDTH: number = Dimensions.get('window').width
 const HEIGHT: number = Dimensions.get('window').height
 
-const Colors = {
-    backGround: '#FFF',
-    primary: '#000',
-    grayBg: "#232232",
-    black: "#000",
-    placeholder:"#808080",
-    secondary: '#FFFFFF',
-    tertiary: '#F58B6A',
-}
-
-const GlobalStyles = StyleSheet.create({
+const globalStyles = StyleSheet.create({
     centeredContainer: {
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    headerTextStyle: {
-        fontSize: verticalScale(5),
-        fontWeight: "400",
-        color: Colors.secondary
     },
     rowBetween: {
         flexDirection: 'row',
@@ -45,32 +34,7 @@ const GlobalStyles = StyleSheet.create({
         marginBottom: verticalScale(30),
         width: scale(90),
         borderRadius: scale(50),
-    }, buttonContainer: {
-        backgroundColor: Colors.primary,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: scale(2.4),
-        borderRadius: scale(3),
-        margin: verticalScale(2),
-    }, buttonText: {
-        fontSize: verticalScale(3),
-        fontWeight: 'bold',
-        color: Colors.primary
-    }, textMissMatch: {
-        color: Colors.grayBg,
-        fontSize: verticalScale(2),
-        fontWeight: 'bold',
-        textAlign: 'center'
-    }, headerContainer: {
-        height: verticalScale(20)
-    }, regularText: {
-        fontSize: scale(20),
-        color: Colors.secondary
-    }, arrowImage: {
-        width: scale(5),
-        height: scale(5),
-        resizeMode: 'contain'
-    },bottomContainer: {
+    }, bottomContainer: {
         flex: 1,
         justifyContent: 'flex-end',
         marginBottom: verticalScale(15),
@@ -81,11 +45,15 @@ const GlobalStyles = StyleSheet.create({
     },
 })
 
-const textInputTheme = {
-    colors: {
-        placeholder: Colors.primary, text: Colors.primary, primary: Colors.primary,
-        underlineColor: Colors.primary, background: Colors.primary
-    }
-}
 
-export { Colors, textInputTheme, GlobalStyles, IOS, ANDROID, WIDTH, HEIGHT };
+export {
+    globalStyles, IOS, ANDROID,
+    WIDTH, HEIGHT,
+    colors,
+    space,
+    fontSizes,
+    fonts,
+    fontWeights,
+    lineHeights,
+    sizes
+};

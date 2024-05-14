@@ -5,12 +5,12 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { scale, verticalScale } from "react-native-size-matters";
 
-import Home from './Home'
-import Cart from './Cart'
-import Settings from './Settings'
+import Home from './home'
+import Cart from './cart'
+import Settings from './settings'
 
-import { GlobalStyles, Colors } from "@Config";
-import { logo } from '@Assets'
+import { globalStyles, colors } from "@config";
+import { logo } from '@assets'
 
 const BottomTab = createBottomTabNavigator();
 
@@ -22,11 +22,11 @@ export default () => {
             tabB
             screenOptions={{
                 activeTintColor: '#979797',
-                inactiveTintColor: Colors.secondary,
+                inactiveTintColor: colors.ui.disabled,
                 headerShown: false,
                 tabBarShowLabel: false,
                 unmountOnBlur: true,
-                tabBarStyle: { backgroundColor: Colors.backGround },
+                tabBarStyle: { backgroundColor: colors.bg.primary },
             }}
         >
             <BottomTab.Screen
@@ -88,12 +88,11 @@ export default () => {
 
 const styles = StyleSheet.create({
     bottomTabContainer: {
-        ...GlobalStyles.centeredContainer,
+        ...globalStyles.centeredContainer,
         top: verticalScale(5),
         padding: verticalScale(5)
     },
     tabText: {
-        ...GlobalStyles.regularText,
         fontSize: scale(10),
         marginTop: scale(3)
     }

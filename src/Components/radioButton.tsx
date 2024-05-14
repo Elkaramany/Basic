@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import Text from './Text'
+import Text from './text'
 import { scale, verticalScale } from 'react-native-size-matters';
-import { GlobalStyles, Colors } from '../Config';
+import { globalStyles, colors } from '../config';
 
 interface Props {
     onPress: () => void;
@@ -23,8 +23,8 @@ const RadioBtn: React.FC<Props> = ({ onPress = () => { }, selected, str }) => {
                         width: RADIO_BUTTON_OUTER_SIZE,
                         height: RADIO_BUTTON_OUTER_SIZE,
                         borderRadius: RADIO_BUTTON_OUTER_SIZE / 2,
-                        borderColor: Colors.primary,
-                        backgroundColor: selected ? Colors.blue : Colors.light,
+                        borderColor: colors.primary,
+                        backgroundColor: selected ? colors.blue : colors.light,
                     },
                 ]}
             >
@@ -36,7 +36,7 @@ const RadioBtn: React.FC<Props> = ({ onPress = () => { }, selected, str }) => {
                                 width: RADIO_BUTTON_SIZE,
                                 height: RADIO_BUTTON_SIZE,
                                 borderRadius: RADIO_BUTTON_SIZE / 2,
-                                backgroundColor: Colors.primary,
+                                backgroundColor: colors.primary,
                             },
                         ]}
                     />

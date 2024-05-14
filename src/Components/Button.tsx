@@ -1,36 +1,37 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, ViewStyle, TextStyle } from 'react-native'
-import Text from './Text'
-import { Colors } from '@Config'
+import { StyleSheet, TouchableOpacity, ViewStyle, TextStyle, View } from 'react-native'
+import Text from './text'
+import { colors, fontWeights, globalStyles } from '@config'
 import { scale, verticalScale } from 'react-native-size-matters'
 
 interface Props {
     onPress: () => void
-    str: string
-    ButtonStyle?: ViewStyle
-    TextStyle?: TextStyle
+    value: string
+    buttonStyle?: ViewStyle
+    textStyle?: TextStyle
+    icon?: React.ReactNode
 }
 
-const Button: React.FC<Props> = ({ onPress, str, ButtonStyle, TextStyle }) => {
+const Button: React.FC<Props> = ({ onPress, value, buttonStyle, textStyle, icon }) => {
     return (
         <TouchableOpacity onPress={onPress}
-            style={[styles.container, ButtonStyle]}>
-            <Text str={str} style={[styles.buttonText, TextStyle]} />
+            style={[styles.container, buttonStyle]}>
+            {icon && <View style={{ paddingRight: scale(5) }}>{icon}</View>}
+            <Text value={value} style={[styles.buttonText, textStyle]} />
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
+        ...globalStyles.rowCenter,
+        backgroundColor: colors.brand.primary,
         padding: scale(12),
-        borderRadius: scale(30),
-        marginVertical: verticalScale(7)
+        borderRadius: scale(5),
+        margin: verticalScale(5)
     }, buttonText: {
-        color: Colors.primary,
-        fontWeight: 'bold'
+        color: colors.text.inverse,
+        fontWeight: fontWeights.regular
     }
 })
 

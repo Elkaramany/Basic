@@ -10,26 +10,29 @@
       "*": [
         "./src/*"
       ],
-      "@Config": [
-        "./src/Config"
+      "@config": [
+        "./src/config"
       ],
-      "@Components": [
-        "./src/Components"
+      "@components": [
+        "./src/components"
       ],
-      "@Navigation": [
-        "./src/Navigation"
+      "@navigation": [
+        "./src/navigation"
       ],
-      "@NavigationTypes": [
-        "./src/Navigation/types"
+      "@navigationTypes": [
+        "./src/navigation/types"
       ],
-      "@Screens": [
-        "./src/Screens"
+      "@screens": [
+        "./src/screens"
       ],
-      "@Redux": [
-        "./src/Redux"
+      "@redux": [
+        "./src/redux"
       ],
-      "@Assets": [
-        "./src/Assets"
+      "@assets": [
+        "./src/assets"
+      ],
+      "@request": [
+        "./src/request"
       ],
     }
   }

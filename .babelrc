@@ -5,13 +5,14 @@
             {
                 "alias": {
                     "*": "./src/*",
-                    "@Config": "./src/Config",
-                    "@Components": "./src/Components",
-                    "@Navigation": "./src/Navigation",
-                    "@NavigationTypes": "./src/NavigationTypes",
-                    "@Screens": "./src/Screens",
-                    "@Assets": "./src/Assets",
-                    "@Redux": "./src/Redux"
+                    "@config": "./src/config",
+                    "@components": "./src/components",
+                    "@navigation": "./src/navigation",
+                    "@navigationTypes": "./src/navigationTypes",
+                    "@screens": "./src/screens",
+                    "@assets": "./src/assets",
+                    "@redux": "./src/redux",
+                    "@request": "./src/request"
                 }
             }
         ]

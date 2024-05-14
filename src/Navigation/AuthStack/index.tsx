@@ -3,7 +3,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthStackParamList } from './types'
 
-import { Login } from '@Screens';
+import { Login } from '@screens';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 

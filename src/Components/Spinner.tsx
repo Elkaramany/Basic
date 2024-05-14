@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Colors } from '../Config';
+import { colors } from '../config';
 
 const Spinner: React.FC<{ big?: boolean, spinnerColor?: string }> = ({ big, spinnerColor }) => {
     return (
@@ -13,7 +13,7 @@ const Spinner: React.FC<{ big?: boolean, spinnerColor?: string }> = ({ big, spin
         >
             <ActivityIndicator
                 size={big == true ? 'large' : 'large'}
-                color={spinnerColor || Colors.blue}
+                color={spinnerColor || colors.brand.primary}
             />
         </View>
     );
