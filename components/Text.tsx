@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextStyle, ViewStyle } from 'react-native';
-import { Colors, fontSizes } from '@/constants';
+import { colors, fontSizes, fontWeights, lineHeights } from '@/constants';
 
 interface Props {
     value: string;
@@ -17,8 +17,21 @@ interface Props {
     mega?: boolean;
     primary?: boolean;
     secondary?: boolean;
+    tertiary?: boolean
+    light?: boolean
+    medium?: boolean;
+    regular?: boolean;
+    bold?: boolean;
+    en?: boolean;
+    lyonBold?: boolean,
+    lyonSemiBold?: boolean,
+    lyonRegular?: boolean,
+    tall?: boolean;
+    giant?: boolean;
     customFontSize?: number;
     customLineHeight?: number;
+    underLine?: boolean;
+    centered?: boolean
 }
 
 const TextComponent: React.FC<Props> = ({
@@ -36,11 +49,29 @@ const TextComponent: React.FC<Props> = ({
     mega,
     primary,
     secondary,
+    tertiary,
+    light,
+    medium,
+    regular,
+    bold,
+    en,
+    lyonBold,
+    lyonSemiBold,
+    lyonRegular,
+    tall,
+    giant,
     customFontSize,
-    customLineHeight
+    customLineHeight,
+    underLine,
+    centered,
+    ...props
 }) => {
     const stylesArray: Array<TextStyle | undefined> = [
-        { fontSize: fontSizes.body, color: color || Colors.text.primary },
+        {
+            fontSize: fontSizes.body, color: color || colors.text.primary,
+            fontFamily: fontWeights.regular, lineHeight: lineHeights.regular,
+            writingDirection: 'rtl',
+        },
     ];
 
     if (color) stylesArray.push({ color });
@@ -55,14 +86,29 @@ const TextComponent: React.FC<Props> = ({
     if (h1) stylesArray.push({ fontSize: fontSizes.h1 });
     if (mega) stylesArray.push({ fontSize: fontSizes.mega });
 
-    if (primary) stylesArray.push({ color: Colors.text.primary });
-    if (secondary) stylesArray.push({ color: Colors.text.secondary });
+    if (primary) stylesArray.push({ color: colors.text.primary });
+    if (secondary) stylesArray.push({ color: colors.text.secondary });
+    if (tertiary) stylesArray.push({ color: colors.text.tertiary });
+
+    if (light) stylesArray.push({ fontFamily: fontWeights.light })
+    if (medium) stylesArray.push({ fontFamily: fontWeights.medium })
+    if (bold) stylesArray.push({ fontFamily: fontWeights.bold })
+    if (en) stylesArray.push({ fontFamily: fontWeights.en })
+    if (lyonBold) stylesArray.push({ fontFamily: fontWeights.lyonBold })
+    if (lyonSemiBold) stylesArray.push({ fontFamily: fontWeights.lyonSemiBold })
+    if (lyonRegular) stylesArray.push({ fontFamily: fontWeights.lyonRegular })
+
+    if (tall) stylesArray.push({ lineHeight: lineHeights.tall })
+    if (giant) stylesArray.push({ lineHeight: lineHeights.giant })
+
 
     if (customFontSize) stylesArray.push({ fontSize: customFontSize });
     if (customLineHeight) stylesArray.push({ lineHeight: customLineHeight });
 
+    if (underLine) stylesArray.push({ textDecorationLine: 'underline' })
+    if (centered) stylesArray.push({ textAlign: 'center' })
     return (
-        <Text style={[...stylesArray, style]}>
+        <Text {...props} style={[...stylesArray, style]}>
             {value}
         </Text>
     );

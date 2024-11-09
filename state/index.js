@@ -10,16 +10,16 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist'
-import { reducer as AuthReducer } from './reducers/authReducer'
+import { authReducer } from './reducers'
 
 const rootReducer = combineReducers({
-    Auth: AuthReducer,
+    auth: authReducer,
 })
 
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['Auth'],
+    whitelist: ['auth'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -36,6 +36,6 @@ const store = configureStore({
 });
 
 const persistor = persistStore(store);
+persistor.purge()
 
 export { persistor, store };;
-export * from './reducers'

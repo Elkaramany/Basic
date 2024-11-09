@@ -1,8 +1,7 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, ViewStyle, TextStyle, View } from 'react-native'
-import Text from './Text'
-import { Colors, globalStyles } from '@/constants'
-import { scale, verticalScale } from 'react-native-size-matters'
+import Text from './text'
+import { colors, globalStyles, scale, verticalScale } from '@/constants'
 
 interface Props {
     onPress: () => void
@@ -17,7 +16,7 @@ const Button: React.FC<Props> = ({ onPress, value, buttonStyle, textStyle, icon 
         <TouchableOpacity onPress={onPress}
             style={[styles.container, buttonStyle]}>
             {icon && <View style={{ paddingRight: scale(5) }}>{icon}</View>}
-            <Text value={value} style={[styles.buttonText, textStyle]} />
+            <Text value={value} style={[styles.buttonText, textStyle]} h3 />
         </TouchableOpacity>
     )
 }
@@ -25,12 +24,14 @@ const Button: React.FC<Props> = ({ onPress, value, buttonStyle, textStyle, icon 
 const styles = StyleSheet.create({
     container: {
         ...globalStyles.rowCenter,
-        backgroundColor: Colors.bg.secondary,
+        backgroundColor: colors.brand.primary,
         padding: scale(12),
-        borderRadius: scale(5),
-        margin: verticalScale(5)
+        paddingVertical: verticalScale(18),
+        borderRadius: scale(42),
+        margin: verticalScale(5),
+        width: '100%'
     }, buttonText: {
-        color: Colors.text.primary,
+        color: colors.text.primary,
     }
 })
 

@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, TextInputProps, ViewStyle, TouchableOpacity } from 'react-native';
-import { Colors } from '@/constants';
-import { TextStyle, scale } from 'react-native-size-matters';
+import { View, TextInput, StyleSheet, TextInputProps, ViewStyle, TouchableOpacity, TextStyle, I18nManager } from 'react-native';
+import { colors, scale, textScale, verticalScale } from '@/constants';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Text from './Text';
+import Text from './text';
 
 interface Props extends TextInputProps {
     label?: string;
@@ -43,7 +42,7 @@ const Input: React.FC<Props> = ({
                     style={[styles.input, inputStyle, { width: rightIcon ? '72%' : '100%' }]}
                     numberOfLines={1}
                     placeholder={placeholder}
-                    placeholderTextColor={Colors.text.disabled}
+                    placeholderTextColor={colors.text.disabled}
                     value={value}
                     onChangeText={onChangeText}
                     secureTextEntry={secureTextEntry}
@@ -74,21 +73,21 @@ const Input: React.FC<Props> = ({
 const styles = StyleSheet.create({
     inputContainer: {
         width: '100%',
-        marginVertical: 10,
+        marginVertical: verticalScale(10),
         justifyContent: 'space-between',
     },
     touchableContainer: {
-        backgroundColor: Colors.bg.primary,
-        borderColor: Colors.text.primary,
-        borderWidth: 1,
-        borderRadius: 15,
+        backgroundColor: 'transparent',
+        borderColor: colors.brand.primary,
+        borderWidth: 0.5,
+        borderRadius: 20,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: scale(10)
     },
     input: {
-        paddingVertical: scale(15),
-        paddingHorizontal: scale(12),
-        color: Colors.text.primary,
+        color: colors.text.primary,
+        textAlign : "right"
     },
     iconContainer: {
         padding: 10,

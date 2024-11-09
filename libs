@@ -1,0 +1,2 @@
+npm i @react-native-async-storage/async-storage axios react-native-gesture-handler react-native-keyboard-aware-scroll-view react-native-toast-message react-native-svg redux redux-thunk redux-persist react-redux @reduxjs/toolkit swr reselect i18n-js i18next react-i18next expo-constants @shopify/flash-list expo-image expo-localization
+npm install --save-dev react-native-svg-transformer @tsconfig/react-native metro-react-native-babel-preset metro-config

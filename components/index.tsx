@@ -1,9 +1,11 @@
-import Container from './Container';
-import Input from './Input';
-import Spinner from './Spinner';
-import Text from './Text';
-import Button from './Button';
-import ArrowBack from './ArrowBack';
+import Container from './container';
+import Input from './input';
+import Spinner from './spinner';
+import Text from './text';
+import Button from './button';
+import ArrowBack from './arrowBack';
+import RoundDownArrow from './roundDownArrow'
+import OtpInput from './otpInput';
 
 export {
     Container,
@@ -12,4 +14,6 @@ export {
     Text,
     Button,
     ArrowBack,
+    RoundDownArrow,
+    OtpInput
 };

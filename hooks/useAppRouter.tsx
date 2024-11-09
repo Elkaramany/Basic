@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { router } from 'expo-router';
-import useAuth from '@/redux/reducers/authReducer/useAuthHook'
+import useAuth from '@/state/reducers/authReducer/useAuthHook'
 
 const useAppRouter = () => {
-    const { uid, email, updateAuthState } = useAuth();
+    const { uid } = useAuth();
 
     useEffect(() => {
-        console.log(uid, email, ' gowa')
-
-        // Redirect based on authentication status
         if (!uid) {
             router.replace("/(public)/onboarding1");
         } else {

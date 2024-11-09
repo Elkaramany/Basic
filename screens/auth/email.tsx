@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
+import { Container, Text } from '@/components'
 
 const Email = () => {
     return (
-        <View>
-            <Text>Email</Text>
-        </View>
+        <Container>
+            <Text value='Email' />
+        </Container>
     )
 }
 
 export default Email
-
-const styles = StyleSheet.create({})
