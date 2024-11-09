@@ -4,7 +4,6 @@ import Spinner from './spinner';
 import Text from './text';
 import Button from './button';
 import ArrowBack from './arrowBack';
-import RoundDownArrow from './roundDownArrow'
 import OtpInput from './otpInput';
 
 export {
@@ -14,6 +13,5 @@ export {
     Text,
     Button,
     ArrowBack,
-    RoundDownArrow,
     OtpInput
 };

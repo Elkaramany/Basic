@@ -70,7 +70,6 @@ const TextComponent: React.FC<Props> = ({
         {
             fontSize: fontSizes.body, color: color || colors.text.primary,
             fontFamily: fontWeights.regular, lineHeight: lineHeights.regular,
-            writingDirection: 'rtl',
         },
     ];
 

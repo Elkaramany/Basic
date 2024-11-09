@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, ViewStyle } from 'react-native'
-import { colors } from '@/constants'
 import Constants from 'expo-constants';
-import { LinearGradient } from 'expo-linear-gradient';
 
 interface Props {
     parentContainerStyle?: ViewStyle
@@ -13,13 +11,12 @@ interface Props {
 const Container: React.FC<Props> = ({ parentContainerStyle, childContainerStyle, children }) => {
 
     return (
-        <LinearGradient
-            colors={[colors.bg.secondary, colors.bg.primary]}
+        <View
             style={[styles.parent, parentContainerStyle]}>
             <View style={[styles.child, childContainerStyle,]}>
                 {children}
             </View>
-        </LinearGradient>
+        </View>
     )
 }
 const styles = StyleSheet.create({

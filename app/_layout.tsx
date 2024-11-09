@@ -5,7 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '@/redux';
+import { store, persistor } from '@/state';
 import useAppRouter from '@/hooks/useAppRouter';
 
 export {
@@ -51,11 +51,7 @@ const RootLayoutNav = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="(public)/onboarding1" />
-      <Stack.Screen name="(public)/onboarding2" />
       <Stack.Screen name="(public)/email" />
-      <Stack.Screen name="(public)/otp" />
-      <Stack.Screen name="(public)/welcome" />
     </Stack>
 
   );
